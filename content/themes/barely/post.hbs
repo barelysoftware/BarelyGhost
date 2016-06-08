@@ -1,0 +1,52 @@
+{{!< default}}
+<div class="row">
+		<div class="col-sm-12"> 
+{{#post}}
+
+<div class="jumbotron" id="start">
+	{{#if image}}
+	<img src="{{image}}" class="img-responsive"/>
+	{{/if}}
+<header>
+		<h1>{{title}}</h1>
+		<p class="author">by <span class="name">{{author.slug}}</span> on
+		<time class="date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY-MM-DD"}}</time></p>
+		<ul class="tags">{{#foreach tags}}<li>{{name}}</li>{{/foreach}}</ul>
+	</header>	
+</div>
+
+<article id="page{{id}}">
+	<section class="content clearfix">
+		{{content}}
+	</section>
+	<div class="clearfix">
+	{{#next_post}}
+		<a class="btn btn-warning clearfix pull-right blogBtn" href="{{url}}" >Show newer&nbsp;<span class="fa fa-arrow-right"></span></a>
+		{{/next_post}}
+		{{#prev_post}}
+		<a class="btn btn-warning clearfix pull-left blogBtn" href="{{url}}" ><span class="fa fa-arrow-left"></span>&nbsp;Show older</a>
+		{{/prev_post}}
+	</div>
+</article>
+<div class="section addOn text-center comments">
+	<div class="col-xs-8" id="disqus_thread">
+	
+	</div>
+</div>
+<script type="text/javascript">
+    var disqus_shortname = 'barelysoftwarenet'; // required: replace example with your forum shortname
+    var disqus_identifier = '{{post.id}}';
+ 
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+{{/post}}
+		
+		</div>
+	</div>

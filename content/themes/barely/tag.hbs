@@ -1,0 +1,14 @@
+{{!< default}}
+
+<div class="jumbotron" id="tag">
+	<h1>{{tag.name}}</h1>
+	<p>
+	{{#if tag.description}}
+        {{tag.description}}
+    {{else}}
+        {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}} 
+    {{/if}} on the subject of {{tag.name}} 
+	</p>
+</div>
+
+{{> "loop"}}

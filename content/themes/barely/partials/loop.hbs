@@ -1,0 +1,20 @@
+<div class="row flexbox">
+{{#foreach posts}}
+<article id="page{{id}}" class="col-md-4">
+{{#if image}}
+	<img src="{{image}}" class="img-responsive"/>
+	{{/if}}
+<header>
+	<h2>{{title}}</h2>
+	<time class="date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY-MM-DD"}}</time></p>
+	<ul class="tags">{{#foreach tags}}<li>{{name}}</li>{{/foreach}}</ul>
+	
+</header>
+<section class="intro"><p>{{meta_description}}</p></section>
+<div class="clearfix">
+<a href="{{url}}#disqus_thread" class="pull-left"><span class="fa fa-comment"></span></a>
+	<a class="btn btn-primary clearfix pull-right blogBtn" href="{{url}}" data-target="#page{{id}}">Read&nbsp;<span class="fa fa-arrow-right"></span></a>
+</div>
+</article>
+{{/foreach}}
+</div>

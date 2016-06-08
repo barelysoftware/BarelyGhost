@@ -1,0 +1,24 @@
+{{!< default}}
+
+{{#author}}
+<section class="author-page jumbotron">
+		{{#if image}}	
+        <figure class="author-image pull-left">
+            <img src="{{image}}" alt="{{name}}'s Picture"/>
+
+        </figure>
+        {{/if}}
+        <h1 class="author"><span class="name">{{slug}}</span>
+        </h1>
+        {{#if bio}}
+            <h2 class="author-bio">{{bio}}</h2>
+        {{/if}}
+        <div class="author-meta pull-right">
+            {{#if website}}<span class="author-website"><a href="{{website}}"><span class="fa fa-link"></span> {{website}}</a></span>{{/if}}
+            {{#if location}}<span class="author-location"><span class="fa fa-map-marker"></span> {{location}}</span>{{/if}}
+            <span class="author-stats"><span class="fa fa-pie-chart"></span> {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}</span>
+        </div>
+</section>
+<p>Posts written by <span class="name">{{slug}}</span></p>
+{{/author}}
+{{> "loop"}}
